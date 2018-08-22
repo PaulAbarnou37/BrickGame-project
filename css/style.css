@@ -32,7 +32,7 @@ h1 {
 
 
 .face-style {
-  background-color: red;
+  background-color: #0095DD;
 }
 
 canvas {
@@ -51,6 +51,46 @@ canvas {
   width: 100%;
   height: 100%;
   position: absolute;
-  margin-bottom: -150px;
 }
 
+p {
+  font-size: 30px;
+  margin : 50px auto;
+}
+
+.allfaces {
+  display: flex; 
+  justify-content: center;
+  align-items:center;
+}
+
+.face-box{
+  border : 2px solid #0095DD;
+  width: 100px;
+  height: 100px;
+  margin: 0 20px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face-box:hover{
+  background-color: #0095DD;
+}
+
+#startBtn {
+  height: 50px;
+  width: 200px;
+  margin-top:70px;
+  border-radius: 25px;
+  border: 2px solid #0095DD;
+  font-family: 'Baloo Bhai', cursive;
+  color: #0095DD;
+  font-size: 15px;
+}
+
+#startBtn:hover{
+  background-color: #0095DD;
+  color: white;
+}

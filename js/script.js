@@ -4,18 +4,19 @@ var ctx = canvas.getContext("2d");
 
 
 var startBtn = document.getElementById('startBtn');
+var canvasContent = document.getElementById('myBlock');
 
 var nizarsFace = new Image();
 nizarsFace.src = "./img/lucas-face.png";
 
-var faces = document.getElementsByClassName("face");
+var faces = document.getElementsByClassName("face-box");
 
 for( var i = 0; i < faces.length; i++ ) {
     faces[i].onclick = function() {
         for( var j = 0; j < faces.length; j++ ){
             faces[j].classList.remove("face-style");
         };
-        nizarsFace.src = this.src;
+        nizarsFace.src = this.querySelector("img").src;
         this.classList.add("face-style");
     }
 }
@@ -23,6 +24,7 @@ for( var i = 0; i < faces.length; i++ ) {
 function initialize (){
 
     startBtn.style.display = 'none';
+    canvasContent.style.display = 'none';
 
 
 
@@ -128,6 +130,7 @@ if(y + dy - 30 < ballRadius) {
 } else if(y + dy > canvas.height-ballRadius) {
   if(x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy * 1.05;
+     
   }
   else {
  
