@@ -5,10 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <canvas id="myCanvas" width="720" height="480"></canvas>
+<header>
+  <h1>The Brick Breakers</h1>
+</header>
+
+<div class="canvas-block">
+  
+  <div class="canvas-content">
+      <p> Choose your Brick Breaker :</p>
+        <div class="allfaces">
+          <div class="face-box"> <img class="face" src="./img/Nizarsface.png" alt=""></div>
+          <div class="face-box"> <img class="face" src="./img/Mostas-face.png" alt=""></div>
+          <div class="face-box"> <img class="face" src="./img/lucas-face.png" style = "width: 50px" alt=""></div>
+        </div>
+        <button type="image"  id="startBtn" onclick="initialize()">START</button>
+    </div>
+    <canvas id="myCanvas" style="border:2px solid #000000" height="476" width="716" box-sizing="border-box"></canvas>
+  </div>
+
+
+
   <script src="./js/script.js"></script>
+
+
 </body>
 </html>
+
+

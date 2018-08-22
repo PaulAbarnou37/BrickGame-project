@@ -1,6 +1,33 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+
+
+var startBtn = document.getElementById('startBtn');
+
+var nizarsFace = new Image();
+nizarsFace.src = "./img/lucas-face.png";
+
+var faces = document.getElementsByClassName("face");
+
+for( var i = 0; i < faces.length; i++ ) {
+    faces[i].onclick = function() {
+        for( var j = 0; j < faces.length; j++ ){
+            faces[j].classList.remove("face-style");
+        };
+        nizarsFace.src = this.src;
+        this.classList.add("face-style");
+    }
+}
+
+function initialize (){
+
+    startBtn.style.display = 'none';
+
+
+
+
+
 // bricks variable
 
 var brickRowCount = 5;
@@ -33,13 +60,16 @@ var paddleX = (canvas.width-paddleWidth)/2;
 rightPressed = false;
 leftPressed = false;
 
-var nizarsFace = new Image();
+
+
 function drawNizar (){
-   nizarsFace.src = "./img/Nizarsface.png";
    ctx.drawImage(nizarsFace, x - 32 , y - 45, 65, 90);
 };
 
 
+var score = 0;
+var playing = false;
+var startButton;
 
 
 
@@ -79,6 +109,8 @@ function drawPaddle() {
   ctx.closePath();
 }
 
+
+
 // movement and get random color everytime it hits the wall
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -87,6 +119,7 @@ function draw() {
   drawNizar();
   drawBricks();
   collisionDetection();
+  drawScore();
   if(x + dx + 20  > canvas.width - ballRadius || x + dx - 15 - ballRadius < 0) {
     dx = -dx;
 } else {x += dx};
@@ -94,10 +127,10 @@ if(y + dy - 30 < ballRadius) {
   dy = -dy;
 } else if(y + dy > canvas.height-ballRadius) {
   if(x > paddleX && x < paddleX + paddleWidth) {
-      dy = -dy;
+      dy = -dy * 1.05;
   }
   else {
-      alert("GAME OVER");
+ 
       document.location.reload();
   }
 } else {y += dy};
@@ -108,6 +141,8 @@ else if(leftPressed && paddleX > 0) {
   paddleX -= 7;
 }
 }
+
+
 
 
 
@@ -143,10 +178,23 @@ function collisionDetection() {
                 if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                     dy = -dy;
                     b.status = 0;
+                    score++;
+                    if(score == brickRowCount*brickColumnCount) {
+                        alert("YOU WIN, CONGRATULATIONS!");
+                        document.location.reload();
+                    }
                 }
             }
         };
     };
 };
 
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 75, 20);
+}
+
+
 setInterval(draw, 10);
+};
