@@ -5,6 +5,7 @@ var isActive = true;
 
 var startBtn = document.getElementById('startBtn');
 var canvasContent = document.getElementById('myBlock');
+var restartBtn = document.getElementById('restartBtn');
 
 var nizarsFace = new Image();
 nizarsFace.src = "./img/lucas-face.png";
@@ -29,13 +30,7 @@ var gameOver = {
     }
 }
 
-var restartGame = {
-    drawMe : function gameOver() {
-        ctx.font = "25px 'Press Start 2P', cursive";
-        ctx.fillStyle = "black";
-        ctx.fillText("Restart", 145, 300);          
-    }
-}
+
 
 
 
@@ -59,6 +54,7 @@ function initialize (){
 
     startBtn.style.display = 'none';
     canvasContent.style.display = 'none';
+
 
     intro.play();
 
@@ -186,7 +182,7 @@ if(y + dy - 30 < ballRadius) {
     
     isActive = false;
     gameOver.drawMe();
-    restartGame.drawMe();
+    restartBtn.style.opacity = 100;
 
       
   }

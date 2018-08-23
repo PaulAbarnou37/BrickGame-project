@@ -38,6 +38,8 @@ canvas {
   background-color: white;
   position: absolute;
   z-index: -1;
+  margin-left: 360px;
+  margin-right: 360px;
 }
 
 .canvas-block {
@@ -93,14 +95,16 @@ p {
 #restartBtn {
   height: 50px;
   width: 200px;
-  margin-top:70px;
   border-radius: 25px;
   border: 2px solid black;
   font-family: 'Press Start 2P', cursive;
   color:black;
   font-size: 15px;
-  z-index: -12;
-  position: absolute;
+  z-index: 0;
+  position: relative;
+  margin-top:300px;
+  margin-left: 625px;
+  opacity: 0;
 }
 
 #startBtn:hover{
